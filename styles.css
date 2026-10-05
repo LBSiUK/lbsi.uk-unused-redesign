@@ -621,6 +621,11 @@ section {
   flex: 1;
 }
 
+/* Button labels keep the button's own text colour; --text-muted is near-black in light mode */
+.project-card .btn .wrap p {
+  color: inherit;
+}
+
 .project-tags {
   display: flex;
   flex-wrap: wrap;

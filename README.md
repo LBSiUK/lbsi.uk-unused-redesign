@@ -1,29 +1,23 @@
 # lbsi.uk unused redesign
 
-A work-in-progress redesign of [lbsi.uk](https://lbsi.uk), Leon Brahams' personal site. It was started to replace
+A formerly work-in-progress redesign of [lbsi.uk](https://lbsi.uk), my personal site. It was started to replace
 the Windows 8 style tile-grid version of the site in [LBSiUK/lbsiukwebsite](https://github.com/LBSiUK/lbsiukwebsite)
-with a simpler layout: a plain black (or white) page, pill-shaped navigation, a light/dark toggle and a few
-featured project cards.
-
-It was never finished or put live. A later redesign borrows some ideas from it (along with bits of the Windows 8
-version and the original site), and this copy is kept for documentation only. It is provided as is, with no
-warranty.
+with a simpler layout but I never finished this or put it live anywhere since I realised I'd rather just rebuild
+from the ground up rather than trying to morph an already existing layout into something "new". It's just here for the record.
 
 ## Screenshots
 
-All screenshots were taken from this repo served locally in headless Chromium.
-
 ![Home page in dark mode: "Welcome to LBSi UK" heading, a short intro, and three featured project cards with coloured banners](docs/screenshots/home-dark.png)
-*Home page, dark theme (the default), at 1440 × 900.*
+*Home page, dark theme*
 
 ![Home page in light mode: the same layout on a white background with grey pill buttons](docs/screenshots/home-light.jpg)
 *Home page after pressing the sun/moon toggle. The choice is remembered across pages.*
 
 ![Projects page in dark mode: five project cards in a grid, two with photos and three with gradient banners](docs/screenshots/projects-dark.png)
-*Projects page (full page), dark theme.*
+*Projects page*
 
 ![Contact page in dark mode: "Get In Touch" heading with Email, LinkedIn, YouTube, Instagram and Telegram buttons](docs/screenshots/contact-dark.png)
-*Contact page, with the brand-coloured pearl buttons.*
+*Contact page*
 
 | Phone, home (dark) | Phone, projects (light) |
 | --- | --- |
@@ -33,13 +27,11 @@ All screenshots were taken from this repo served locally in headless Chromium.
 
 ## Features
 
-- Four static pages: Home, About, Projects and Contact.
-- Light and dark themes. The choice is saved in `localStorage` and applied before the page paints, so there is
-  no flash of the wrong theme when moving between pages.
-- "Pearl" pill buttons with layered inset shadows, used for the navigation, card links and contact links.
-- Frosted-glass project cards with a soft gradient sheen and a lift on hover.
-- Load animations: the header and headings wipe in from the top, and cards and paragraphs fade up as they
-  scroll into view.
+- Four static pages: Home, About, Projects and Contact
+- Light and dark themes. The choice is saved in `localStorage` so it'll remember when you load in a new page
+- "Pearl" pill buttons with layered inset shadows for navigation etc
+- Frosted-glass project cards with a soft gradient sheen
+- Nice load animations
 - A slowly drifting background glow in light mode.
 - Responsive layout down to 320px wide.
 
@@ -55,8 +47,6 @@ python3 -m http.server 8000
 
 Then open <http://localhost:8000/>. Opening `index.html` straight from disk also works, since every path is
 relative.
-
-There are no tests.
 
 ## Architecture
 
@@ -101,8 +91,7 @@ How the pieces fit together:
 - **Buttons.** All buttons share one `.btn > .wrap > p` structure. The base style is the pearl button, with
   modifiers for navigation (`btn-nav`), small card links (`btn-sm`), the main call to action (`btn-primary`) and the
   brand-coloured contact links.
-- **Fonts.** Headings and the logo use the bundled `Roman.otf` serif. Body text uses a Segoe UI / Tahoma / Verdana
-  stack.
+- **Fonts.** Headings and the logo use the bundled Didot font. Body text uses a mixture of Segoe UI / Tahoma / Verdana.
 
 ### Project layout
 
@@ -112,12 +101,12 @@ How the pieces fit together:
 | `about.html` | About page: short bio, skill chips and a photo |
 | `projects.html` | Projects page: five project cards, some with images |
 | `contact.html` | Contact page: email and social links |
-| `styles.css` | All styling, including both themes and the responsive breakpoints (900px, 720px, 640px, 380px) |
+| `styles.css` | All styling, including light and dark themes and breakpoints |
 | `script.js` | Theme toggle, header shadow on scroll, scroll-reveal observer, smooth scrolling for `#` links |
-| `Roman.otf` | Display serif used for headings and the logo |
+| `Roman.otf` | Didot font file used for headings and the logo |
 | `fav.ico` | Favicon |
-| `images/` | Photos and screenshots used on the About and Projects pages |
 | `docs/screenshots/` | The screenshots in this README |
+| `images/` | Photos and screenshots used on the About and Projects pages |
 
 ## Status and limitations
 
